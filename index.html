@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="野兽先辈万能论证机: " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>野兽先辈万能论证机</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dkwingsmt/haha">View on GitHub</a>
+
+          <h1 id="project_title">野兽先辈万能论证机</h1>
+          <h2 id="project_tagline">根本不会html和js只会便乘他人代码的作者事屑</h2>
+          <h3 id="project_tagline">我自裁罢（绝望）</h3>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+          <table style="width:768px">
+              <tr>
+                  <th style="width:50%;">
+          <!--<h3>请依次填入以下信息……</h3>-->
+    <form name="info_form">
+    <p>迫害对象
+        <br>
+        <input type="text" name="i_item" value="" style="width:100px;" />
+    </p>
+    <p>正文</p>
+    <ol>
+        <li>
+            性别
+            <select name="i_gender">
+              <option value ="男">男</option>
+              <option value ="女">女</option>
+              <option value ="不确定">不确定</option>
+            </select>
+        <li>
+            是虚拟人物吗
+            <select name="i_illus">
+              <option value ="是">是</option>
+              <option value ="不是">不是</option>
+            </select>
+        </li><li>
+            比谁年长
+            <input type="text" name="i_whom" value="" style="width:130px;" /> 
+        </li><li>
+            做过的坏事
+            <input type="text" name="i_what" value="" style="width:180px;" /> 
+        </li><li> 
+            做过的好事
+            <input type="text" name="i_good" value="" style="width:180px;" /> 
+        </li><li> 
+            做不到/不会做的事
+            <input type="text" name="i_no" value="" style="width:128px;" /> 
+        </li><li> 
+            梦想/目标
+            <input type="text" name="i_dream" value="" style="width:192px;" /> 
+        </li>
+    </ol>
+    <input type="button" name="button" value="论证开始！" onclick="generate()" style="width:100px;" />
+        
+    </form>
+              </th>
+              <th style="width:49%">
+        <textarea name="result" id="result" style="width:100%; height: 450px;"/>
+        </textarea>
+              </th>
+              </tr>
+          </table>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">野兽先辈万能论证机 adapted by <a href="https://zhuanlan.zhihu.com/chemistrash">不愿透漏姓名的屑作者（大嘘）</a></p>
+        <p>Inspired by <a href="https://github.com/dkwingsmt">dkwingsmt</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+<script type="text/javascript">
+
+function get_inputs() {
+    return document.querySelectorAll("form > ol > li > select, form > p > input, form > ol > li > input");
+}
+
+var init_arrays = [];
+
+init_arrays.push({
+    i_item: "我",
+    i_whom: "小学生",
+    i_gender: "男",
+    i_illus: "不是",
+    i_what: "便乘他人的代码",
+    i_good: "编写万能论证机造福众homo",
+    i_dream: "统治全世界",
+    i_no: "考上清华"
+});
+
+function initialize(init_array) {
+
+    var inputs = get_inputs();
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].value = init_array[inputs[i].name];
+    }
+    generate();
+}
+        
+function generate() {
+    var inputs = get_inputs();
+    var result_text = result;
+    
+    var tmp = "1. {{i_item}}事男性，而野兽先辈毫无疑问也事男性。"
+    if (inputs[1].value=='女') {tmp='1. 存在野兽先辈女子说，而{{i_item}}也事女子。';}
+    if (inputs[1].value=='不确定') {tmp='1. 野兽先辈既可以被论证为男子也可以被论证为女子，而{{i_item}}也没有确定的性别。';}
+    
+    var tmp2 = "2. 野兽先辈在《真夏夜的银梦》中本色出演，事真实存在的人物；而{{i_item}}也在三次元中真实存在。"
+    if (inputs[2].value=='是') {tmp2='2. {{i_item}}事虚拟人物；而先辈也是《真夏夜的银梦》中的虚拟人物。';}
+    
+    var length_check = inputs[0].value.replace(/\s/g, "");
+    var length = length_check.length
+    var yajuu = {
+    1:'1 + 1 + 4 - 5 * 1 ^ 4',
+    2:'1 + 1 + 4 - 5 + 1 ^ 4',
+    3:'1 + 1 - 4 + 5 * 1 ^ 4',
+    4:'1 + 1 + 4 - 5 - 1 + 4',
+    5:'1 + 1 + 4 - 5 + 1 * 4',
+    6:'1 + 1 + 4 + 5 - 1 - 4',
+    7:'1 + 1 + 4 + 5 - 1 * 4',
+    8:'1 + 1 + 4 + 5 + 1 - 4',
+    9:'1 + 1 * 4 + 5 - 1 ^ 4',
+    10:'1 + 1 + 4 + 5 - 1 ^ 4',
+    11:'1 + 1 + 4 + 5 * 1 ^ 4',
+    12:'1 + 1 + 4 + 5 + 1 ^ 4',
+    13:'1 + 1 * 4 + 5 - 1 + 4',
+    14:'1 + 1 + 4 + 5 - 1 + 4',
+    15:'1 + 1 + 4 + 5 + 1 * 4',
+    16:'1 + 1 + 4 + 5 + 1 + 4',
+    17:'1 + 1 + 4 * 5 - 1 - 4',
+    18:'1 + 1 + 4 * 5 - 1 * 4',
+    19:'1 + 1 + 4 * 5 + 1 - 4',
+    20:'1 + 1 * 4 * 5 - 1 ^ 4',
+    21:'1 + 1 + 4 * 5 - 1 ^ 4',
+    22:'1 + 1 + 4 * 5 * 1 ^ 4',
+    23:'1 + 1 + 4 * 5 + 1 ^ 4',
+    24:'1 + 1 * 4 * 5 - 1 + 4',
+    25:'1 + 1 + 4 * 5 - 1 + 4'};
+    
+    var template = "";
+    template += "野兽先辈{{i_item}}说\n\n";
+    template += tmp + "\n\n";
+    template += tmp2 + "\n\n";
+    template += "3. {{i_item}}比{{i_whom}}年长，事先辈；野兽先辈24岁事学生，也事先辈。\n\n"
+    template += "4. 野兽先辈雷普后辈，事屑；{{i_item}}{{i_what}}，也事屑。\n\n";
+    template += "5. {{i_item}}想要{{i_dream}}，事王道征途；野兽先辈也崇尚王道征途。 \n\n";
+    template += "6. {{i_item}}虽然{{i_what}}，但也{{i_good}}，具备屑鉴二象性。野兽先辈虽然雷普后辈，却爆破了nico本社，也具备屑鉴二象性。\n\n"
+    template += "7. {{i_item}}很无力，想{{i_dream}}，却连{{i_no}}都办不到；野兽先辈崇尚王道征途，却在雷普后辈时被一转攻势，也很无力。\n\n"
+    template += "8. 在这篇屑论证中，{{i_item}}惨遭小鬼迫害；银梦已经dssq多年，先辈也惨遭十万甚至九万个小鬼迫害。\n\n"
+    if (length<26){template += "数字论证：“{{i_item}}”事" + length + "个字。" + length + " = " + yajuu[length] + "\n\n";}
+    else{template += "数字论证：{{i_item}}的名字太长了，数字论证无力，你自裁罢\n\n";}
+    template += "最后，没有任何证据表明{{i_item}}一定不事野兽先辈。而基于以上论据，以及“如果一个东西长得像鸭子，游泳像鸭子，叫声像鸭子，那么它就是鸭子”的原理，我们可以完全确信，{{i_item}}就事野兽先辈。\n\n"
+    template += "Q. E. D."
+
+    for (var i = 0; i < inputs.length; i++) {
+        var regexp = new RegExp("\{\{"+inputs[i].name+"\}\}", "g");
+        template = template.replace(regexp, inputs[i].value, "g");
+    }
+    result_text.value = template;
+}
+
+initialize(init_arrays[Math.floor(Math.random() * init_arrays.length)]);
+    </script>
+
+  </body>
+</html>
