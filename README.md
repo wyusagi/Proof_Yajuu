@@ -1,9 +1,9 @@
 Automatically prove someone is Yajuu Senpai
 ====
 
-野兽先辈自动论证机
+野兽先辈万能论证机
 
-http://dkwingsmt.github.io/haha
+https://wyusagi.github.io/Proof_Yajuu/
 
 
 
