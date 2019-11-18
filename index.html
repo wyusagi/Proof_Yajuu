@@ -69,7 +69,6 @@
             <input type="text" name="i_dream" value="" style="width:192px;" /> 
         </li>
     </ol>
-    <input type="button" name="button" value="论证开始！" onclick="generate()" style="width:100px;" />
         
     </form>
               </th>
@@ -115,6 +114,7 @@ function initialize(init_array) {
     var inputs = get_inputs();
     for(var i = 0; i < inputs.length; i++) {
         inputs[i].value = init_array[inputs[i].name];
+        inputs[i].addEventListener('input',generate)
     }
     generate();
 }
